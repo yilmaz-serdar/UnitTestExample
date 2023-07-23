@@ -1,0 +1,33 @@
+﻿@using UnitTestExample.Data.Entities
+@model List<Customer>
+
+@{
+    ViewData["Title"] = "Customers Page";
+}
+
+<h2>Customers</h2>
+
+<div style="float:right;">
+    @Html.ActionLink("Create", "Create")
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">E-Mail</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.FirstName</td>
+                <td>@customer.LastName</td>
+                <td>@customer.Email</td>
+                <td><a asp-action="Details" asp-route-id="@customer.Id">Detail</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
